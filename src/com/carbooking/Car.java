@@ -117,10 +117,17 @@ public class Car {
                  ", Price/Day: " + pricePerDay +
                  ", Available: " + (!booked));
 }
+
+
+
+
+
+	public String toCSV() {
+		// TODO Auto-generated method stub
+		 return id + "," + brand + "," + model + "," + pricePerDay + "," + booked;
+	}
 	
-	  public String toCSV() {
-	        return id + "," + brand + "," + model + "," + pricePerDay + "," + booked;
-	    }
+	
 		
 	}
 

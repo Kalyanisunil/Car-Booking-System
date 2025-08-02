@@ -10,7 +10,7 @@ public class Main {
         system.loadCarsFromFile("cars.txt");
         Scanner sc = new Scanner(System.in);
         int choice;
-
+      
         // preload sample cars
         system.addCar(new Car(1, "Honda", "City", 1500));
         system.addCar(new Car(2, "Hyundai", "i20", 1200));
@@ -39,7 +39,7 @@ public class Main {
                     System.out.print("Enter Price/Day: ");
                     double price = sc.nextDouble(); sc.nextLine();
                     system.addCar(new Car(id, brand, model, price));
-                    System.out.println("Car added.");
+                 
                     break;
                 case 2:
                     system.showAvailableCars();
@@ -57,9 +57,10 @@ public class Main {
                      system.addCustomer(customer);
                      Car rented=system.bookCar(carId);
                      double amount=rented.getPricePerDay() * rentalDays;
-                     System.out.println("Rental confirmed for " + name + ".");
-                     System.out.println("Total amount for " + rentalDays + " day(s): " + amount);
-                
+                    
+                     System.out.println("Total amount for " + rentalDays + " day(s): " + amount );
+                   
+                  
                     break;
                 case 4:
                 	System.out.print("Enter CarId: ");

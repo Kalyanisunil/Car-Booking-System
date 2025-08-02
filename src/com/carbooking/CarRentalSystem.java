@@ -1,5 +1,6 @@
 package com.carbooking;
-import java.io.IOException; 
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
@@ -15,11 +16,18 @@ public class CarRentalSystem {
     public CarRentalSystem() {
         cars = new ArrayList<>();
         customers = new ArrayList<>();
+        
     }
-
-    public void addCar(Car car) {
+   
+    public boolean addCar(Car car) {
         // TODO: prevent duplicate IDs if you want later
+    	  if (getCarById(car.getId()) != null) {
+    	        System.out.println("Car with ID " + car.getId() + " already exists.");
+    	        return false; // reject duplicate
+    	    }
         cars.add(car);
+        System.out.println("Car added: " + car.getBrand() + " " + car.getModel());
+        return true;
     }
 
     public void addCustomer(Customer customer) {
@@ -130,6 +138,16 @@ public class CarRentalSystem {
             System.out.println("Error loading cars: " + e.getMessage());
         }
     }
+
+    public Car getCarById(int id) {
+        for (Car c : cars) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+        return null; // not found
+    }
+
    
 
 
