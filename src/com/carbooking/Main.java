@@ -27,7 +27,8 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.print("Enter Car ID: ");
-                    int id = sc.nextInt(); sc.nextLine();
+                    int id = sc.nextInt(); 
+                    sc.nextLine();
                     System.out.print("Enter Brand: ");
                     String brand = sc.nextLine();
                     System.out.print("Enter Model: ");
@@ -41,10 +42,28 @@ public class Main {
                     system.showAvailableCars();
                     break;
                 case 3:
+                	 System.out.print("Enter your name: ");
+                     String name = sc.nextLine(); 
+                     System.out.print("Enter CarId: ");
+                     int carId = sc.nextInt();
                    
+                     System.out.print("Enter rental days: ");
+                     int rentalDays = sc.nextInt();
+                    
+                     Customer customer=new Customer(name, carId, rentalDays);
+                     system.addCustomer(customer);
+                     Car rented=system.bookCar(carId);
+                     double amount=rented.getPricePerDay() * rentalDays;
+                     System.out.println("Rental confirmed for " + name + ".");
+                     System.out.println("Total amount for " + rentalDays + " day(s): " + amount);
+                
                     break;
                 case 4:
-                   
+                	System.out.print("Enter CarId: ");
+                	 int carId1 = sc.nextInt();
+                	 sc.nextLine();
+                	system.returnCar(carId1);
+                	
                     break;
                 case 5:
                     system.showAllCars();

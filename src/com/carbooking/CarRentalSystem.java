@@ -44,21 +44,22 @@ public class CarRentalSystem {
         }
     }
 
-    public boolean bookCar(int id) {
+    public Car bookCar(int id) {
         for (Car c : cars) {
             if (c.getId() == id) {
                 if (c.isBooked()) {
                     System.out.println("Car is already booked.");
-                    return false;
+                    return null;
                 } else {
                     c.setBooked(true);
                     System.out.println("Car booked: " + c.getBrand() + " " + c.getModel());
-                    return true;
+                  
+                    return c;
                 }
             }
         }
         System.out.println("Car with ID " + id + " not found.");
-        return false;
+        return null;
     }
 
     public boolean returnCar(int id) {
@@ -77,4 +78,11 @@ public class CarRentalSystem {
         System.out.println("Car with ID " + id + " not found.");
         return false;
     }
+
+  
+   
+
+
+
+	
 }
