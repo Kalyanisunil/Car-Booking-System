@@ -1,10 +1,13 @@
 package com.carbooking;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         CarRentalSystem system = new CarRentalSystem();
+        system.loadCarsFromFile("cars.txt");
         Scanner sc = new Scanner(System.in);
         int choice;
 
@@ -69,6 +72,7 @@ public class Main {
                     system.showAllCars();
                     break;
                 case 6:
+                	system.writeToFile("cars.txt");
                     System.out.println("Exiting system.");
                     break;
                 default:
