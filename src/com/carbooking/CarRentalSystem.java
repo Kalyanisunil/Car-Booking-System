@@ -33,6 +33,17 @@ public class CarRentalSystem {
     public void addCustomer(Customer customer) {
         customers.add(customer);
     }
+    
+    public void showActiveRentals()
+    {
+    	 if (customers.isEmpty()) {
+             System.out.println("No active rentals.");
+         } else {
+             for (Customer cust : customers) {
+                 System.out.println(cust);
+             }
+         }
+    }
 
     public void showAvailableCars() {
         System.out.println("=== Available Cars ===");
